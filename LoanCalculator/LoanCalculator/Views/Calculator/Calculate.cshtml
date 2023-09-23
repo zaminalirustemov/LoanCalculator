@@ -1,0 +1,77 @@
+﻿@model LoanViewModel
+
+<div class="container-xl px-4 mt-4">
+
+    <hr class="mt-0 mb-4">
+    <div class="row">
+        <div class="col-xl-12">
+            <!-- Account details card-->
+            <div class="card mb-4">
+                <div class="card-header">Loan Calculator</div>
+                <div class="card-body">
+                    <form method="post">
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (first name)-->
+                            <div class="col-md-12">
+                                <label  asp-for="Purpose" class="small mb-1" for="inputFirstName">Purpose of business loan</label>
+                                <input asp-for="Purpose" class="form-control" id="inputFirstName" type="text" placeholder="Purpose of business loan">
+                            </div>
+
+                        </div>
+
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (organization name)-->
+                            <div class="col-md-8">
+                                <label asp-for="Amount" class="small mb-1" for="cars">Amount</label>
+                                <input asp-for="Amount" class="form-control" id="inputFirstName" type="text" placeholder="Amount">
+                            </div>
+                            <!-- Form Group (location)-->
+                            <div class="col-md-4">
+                                <label asp-for="Currency" class="small mb-1">Currency</label>
+                                <select class="form-control" asp-for="Currency">
+                                    <option value="azn">Azerbaijani manat (AZN)</option>
+                                    <option value="try">Turkish lira (TRY)</option>
+                                    <option value="usd">US Dollar (USD)</option>
+                                    <option value="eur">Euro (EUR)</option>
+                                    <option value="gbp">British pound (GBP)</option>
+                                    <option value="jpy">Japanese Yen (JPY)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (phone number)-->
+                            <div class="col-md-6">
+                                <label asp-for="Duration" class="small mb-1" for="inputPhone">Duration (month)</label>
+                                <input asp-for="Duration" class="form-control" id="inputPhone" placeholder="Duration">
+                            </div>
+                            <!-- Form Group (birthday)-->
+                            <div class="col-md-6">
+                                <label asp-for="Interest" class="small mb-1" for="inputBirthday">Interest rate (0%-100%)</label>
+                                <input asp-for="Interest" class="form-control" id="inputBirthday" type="text" placeholder="Interest rate">
+                            </div>
+                        </div>
+
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (first name)-->
+                            <div class="col-md-12">
+                                <label asp-for="Guarantor" class="small mb-1" for="inputFirstName">Guarantor</label>
+                                <input asp-for="Guarantor" class="form-control" id="inputFirstName" type="text" placeholder="Guarantor">
+                            </div>
+
+                        </div>
+
+                        <div style="text-align:right">
+
+                            <button type="submit" style="color: white" class="btn btn-primary" >Go to loan table</button>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

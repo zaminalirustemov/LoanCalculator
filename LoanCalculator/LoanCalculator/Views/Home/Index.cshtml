@@ -1,0 +1,92 @@
+﻿@inject LoanCalculator.Services.MemberLayoutService memberService
+@{
+    AppUser user = await memberService.GetUser();
+}
+
+<div class="container-xl px-4 mt-4">
+
+    <hr class="mt-0 mb-4">
+    <div class="row">
+        <div class="col-xl-4">
+            <!-- Profile picture card-->
+            <div class="card mb-4 mb-xl-0">
+                <div class="card-header">Profile Picture</div>
+                <div class="card-body text-center">
+                    <img class="img-account-profile rounded-circle mb-2" src="~/register/images/memperphoto.jpg" alt="">
+                    <div class="small font-italic text-muted mb-4">
+                        Meet the conditional
+                    </div>
+                    <a style="color: white" class="btn btn-primary" asp-action="index" asp-controller="calculator">Loan Calculator</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-8">
+            <!-- Account details card-->
+            <div class="card mb-4">
+                <div class="card-header">Account Details</div>
+                <div class="card-body">
+                    <form>
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (first name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputFirstName">Serial Number</label>
+                                <input class="form-control" id="inputFirstName" type="text" value="@user.SerialNumber" readonly>
+                            </div>
+                            <!-- Form Group (last name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputLastName">FIN</label>
+                                <input class="form-control" id="inputLastName" type="text" value="@user.FIN" readonly>
+                            </div>
+                        </div>
+
+                        <div class="row gx-3 mb-3">
+                            <div class="col-md-4">
+                                <label class="small mb-1" for="inputFirstName">Name</label>
+                                <input class="form-control" id="inputFirstName" type="text" value="@user.Name" readonly>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="small mb-1" for="inputLastName">Surname</label>
+                                <input class="form-control" id="inputLastName" type="text" value="@user.Surname" readonly>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="small mb-1" for="inputLastName">Father name</label>
+                                <input class="form-control" id="inputLastName" type="text" value="@user.FatherName" readonly>
+                            </div>
+                        </div>
+
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (phone number)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputPhone">Phone number</label>
+                                <input class="form-control" id="inputPhone" type="tel"  value="@user.PhoneNumber" readonly>
+                            </div>
+                            <!-- Form Group (birthday)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputBirthday">Birthday</label>
+                                <input class="form-control" id="inputBirthday" type="text" name="birthday"  value="@{
+                                        @String.Format("{0:d/M/yyyy}", user.DateOfBirth).Replace(" ","/")}" readonly>
+                            </div>
+                        </div>
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (organization name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputOrgName">Actual Address</label>
+                                <input class="form-control" id="inputOrgName" type="text" value="@user.ActualAddress" readonly>
+                            </div>
+                            <!-- Form Group (location)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputLocation">Registration Address</label>
+                                <input class="form-control" id="inputLocation" type="text" value="@user.RegistrationAddress" readonly>
+                            </div>
+                        </div>
+
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
